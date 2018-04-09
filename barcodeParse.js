@@ -1,10 +1,8 @@
 //Copyright Kyle Lessnau 2018
 //This parser is meant to be used to parse barcodes provided by General Motors. The identifiers found within the data matrix of the barcode represent different types of data 
 
+//Example of barcode that would be scanned into the application.
 var dataMatrix = "[)>06P23393314Q201JUN54490842917021649120L21LK14HD02FJ15KB0000CART7Q12GT2SGT";
-//var dataMatrix = "[)>06Q2020L21LK14HD02FJ15KB0000CARTP233933147Q12GT2SGT1JUN544908429170216491";
-//var dataMatrix = "1JUN544908429170216491";
-//var dataMatrix = "15K23456";
 
 //For error prevention, in case the barcode happens to contain identifiers that are lower-case, this will prevent them from being skipped.
 dataMatrix.toUpperCase();
@@ -63,6 +61,7 @@ function parseEntireBarcode(dataMatrix, arr) {
     //For the n-1 identifiers, I'll start piecing together the parsed dataString
     for(var i = 0; i < arr.length - 1; i++) {
         for(var j = arr[i].index; j < arr[i+1].index; j++ ) {
+            //To append data to dataString in Sysdev Kalipso, you *MUST* use dataString += dataMatrix.charAt(j).
             dataString += dataMatrix[j];
         }
         console.log(dataString);
@@ -70,6 +69,7 @@ function parseEntireBarcode(dataMatrix, arr) {
     }
     //Piece together final substring.
     for(var i = arr[finalElement].index; i < dataMatrix.length; i++ ) {
+        //To append data to dataString in Sysdev Kalipso, you *MUST* use dataString += dataMatrix.charAt(i).
         dataString += dataMatrix[i];
     }
     console.log(dataString);
