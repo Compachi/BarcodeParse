@@ -8,7 +8,7 @@ var dataMatrix = "[)>06P23393314Q201JUN54490842917021649120L21LK14HD02FJ15KB0000
 dataMatrix.toUpperCase();
 
 //Acquire index of beginning of each identifier
-var pIdentIndex = dataMatrix.indexOf("P");              //
+var pIdentIndex = dataMatrix.indexOf("P");              
 var qIdentIndex = dataMatrix.indexOf("Q");
 var oneJIdentIndex = dataMatrix.indexOf("1J");
 var twentyLIdentIndex = dataMatrix.indexOf("20L");
